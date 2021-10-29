@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "1003256829774",
+    "firebase_url": "https://insight-77b00.firebaseio.com",
+    "project_id": "insight-77b00",
+    "storage_bucket": "insight-77b00.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003256829774:android:a092ed9869565e99",
+        "android_client_info": {
+          "package_name": "com.kpstv.insight"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1003256829774-a1r29j2epq8pp371d8ki448hrco5q11v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kpstv.insight",
+            "certificate_hash": "a00eaa18ddf8fe578298f7b20d0d73ee0453276d"
+          }
+        },
+        {
+          "client_id": "1003256829774-l86gibkp4532dggeiuhfg0sb05occmhq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kpstv.insight",
+            "certificate_hash": "3dbf0465a1068b77e84a62d783cc1a0a2930ef77"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8Kur1X89-aSFWw3fMvF0cBoVnLtORdGM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      },
+      "admob_app_id": "ca-app-pub-1763645001743174~7165574778"
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003256829774:android:db685a551871773dd4701f",
+        "android_client_info": {
+          "package_name": "com.kpstv.navigator_multimodule_test"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8Kur1X89-aSFWw3fMvF0cBoVnLtORdGM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
