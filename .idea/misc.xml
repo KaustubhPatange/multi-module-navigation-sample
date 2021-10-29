@@ -5,6 +5,13 @@
       <map>
         <entry key="..\:/AndroidStudioProjects/Tests/Navigator-MultiModule-Test/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/Tests/Navigator-MultiModule-Test/app/src/main/res/layout/content_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/Tests/Navigator-MultiModule-Test/home-internal/src/main/res/layout/fragment_home_internal.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/Tests/Navigator-MultiModule-Test/home-internal2/src/main/res/layout/fragment_home_internal2.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/Tests/Navigator-MultiModule-Test/home/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/Tests/Navigator-MultiModule-Test/home/src/main/res/layout/fragment_home_start.xml" value="0.253125" />
+        <entry key="..\:/AndroidStudioProjects/Tests/Navigator-MultiModule-Test/home/src/main/res/layout/fragment_second.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/Tests/Navigator-MultiModule-Test/welcome/src/main/res/layout/fragment_first.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/Tests/Navigator-MultiModule-Test/welcome/src/main/res/layout/fragment_welcome.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

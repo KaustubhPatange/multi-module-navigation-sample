@@ -1,16 +1,7 @@
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
-}
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
 rootProject.name = "navigator-multimodule-test"
 include ':app'
+include ':welcome'
+include ':home'
+include ':core'
+include ':home-internal'
+include ':home-internal2'
