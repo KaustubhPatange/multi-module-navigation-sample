@@ -5,20 +5,23 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import com.kpstv.core.di.DaggerFragmentFactory
 import com.kpstv.navigator_multimodule_test.databinding.ActivityMainBinding
-import com.kpstv.navigator_multimodule_test.di.AppComponentProvider
+import com.kpstv.navigator_multimodule_test.di.MainActivityComponent
 import com.kpstv.welcome.WelcomeFragment
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.EntryPointAccessors
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
   private lateinit var binding: ActivityMainBinding
 
   @Inject lateinit var daggerFragmentFactory: DaggerFragmentFactory
 
+  private val activityComponent by lazy { EntryPointAccessors.fromActivity(this, MainActivityComponent::class.java) }
+
   override fun onCreate(savedInstanceState: Bundle?) {
-    (application as AppComponentProvider)
-      .appComponent.activityComponent().activity(this)
-      .inject(this)
+    activityComponent.inject(this)
     super.onCreate(savedInstanceState)
     binding = ActivityMainBinding.inflate(layoutInflater)
     setContentView(binding.root)

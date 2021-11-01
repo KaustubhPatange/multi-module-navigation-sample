@@ -18,8 +18,6 @@ interface AppAggregatorModule
 @EntryPoint
 interface AppComponent {
 
-  fun activityComponent() : ActivityComponent.Factory
-
   fun inject(app: App)
 }
 

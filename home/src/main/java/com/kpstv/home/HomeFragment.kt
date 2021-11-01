@@ -6,20 +6,17 @@ import androidx.fragment.app.Fragment
 import com.kpstv.core.di.DaggerFragmentFactory
 import com.kpstv.home.di.HomeComponent
 import com.kpstv.home.di.HomeComponentProvider
-import com.kpstv.home.di.HomeScope
 import com.kpstv.home.fragments.HomeStartFragment
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.EntryPointAccessors
 import javax.inject.Inject
 
-class HomeFragment @Inject constructor(
-  homeComponentFactory: HomeComponent.Factory
-) : Fragment(R.layout.fragment_home), HomeComponentProvider {
+@AndroidEntryPoint
+class HomeFragment @Inject constructor() : Fragment(R.layout.fragment_home), HomeComponentProvider {
 
-  override val homeComponent = homeComponentFactory.create(this)
+  override val homeComponent by lazy { EntryPointAccessors.fromFragment(this, HomeComponent::class.java) }
 
-  // if constructor injected then the fragment multi-bindings will be provided from
-  // activityComponent i.e only WelcomeFragment & HomeFragment but we also
-  // want all from the HomeFragmentModule. Hence field injection to inject from HomeComponent.
-  @HomeScope @Inject
+  @Inject
   lateinit var fragmentFactory: DaggerFragmentFactory
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

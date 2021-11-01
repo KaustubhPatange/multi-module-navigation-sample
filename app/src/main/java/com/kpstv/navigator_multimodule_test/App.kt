@@ -20,7 +20,6 @@ class App : Application(), AppComponentProvider, Configuration.Provider {
   }
 
   override fun onCreate() {
-    appComponent.inject(this)
     super.onCreate()
   }
 }

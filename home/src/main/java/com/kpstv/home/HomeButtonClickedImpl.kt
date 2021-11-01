@@ -5,7 +5,7 @@ import com.kpstv.home_internal2.HomeInternal2Fragment
 import javax.inject.Inject
 
 class HomeButtonClickedImpl @Inject constructor(
-  private val fragment: HomeFragment
+  private val fragment: HomeFragment /* It is creating a new instance instead of providing an existing one */
 ) : HomeButtonClicked {
   override fun goToNext() {
     fragment.childFragmentManager.beginTransaction()
