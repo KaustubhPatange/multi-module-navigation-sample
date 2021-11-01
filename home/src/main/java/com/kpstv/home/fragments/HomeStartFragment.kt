@@ -4,19 +4,18 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.kpstv.home.HomeDependency
 import com.kpstv.home.R
 import com.kpstv.home_internal.HomeInternalFragment
-import com.kpstv.navigation.FragmentNavigator
-import com.kpstv.navigation.ValueFragment
 import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
 
 class HomeStartFragment @Inject constructor(
   private val homeDependency: HomeDependency
-) : ValueFragment(R.layout.fragment_home_start) {
+) : Fragment(R.layout.fragment_home_start) {
   private val viewModel by viewModels<HomeStartViewModel>()
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -35,10 +34,11 @@ class HomeStartFragment @Inject constructor(
     }
 
     button.setOnClickListener {
-      parentNavigator.navigateTo(
-        HomeInternalFragment::class,
-        FragmentNavigator.NavOptions(remember = true)
-      )
+      // this could be done better but for the sake of simplicity keep it as it is.
+      parentFragmentManager.beginTransaction()
+        .addToBackStack("homeinternal")
+        .replace(R.id.frag_container, HomeInternalFragment::class.java, null)
+        .commit()
     }
   }
 }

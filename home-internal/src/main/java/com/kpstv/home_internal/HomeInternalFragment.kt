@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.kpstv.home_internal.worker.HomeInternalWorker
-import com.kpstv.navigation.FragmentNavigator
-import com.kpstv.navigation.ValueFragment
 import javax.inject.Inject
 
 class HomeInternalFragment @Inject constructor(
   private val homeButtonClicked: HomeButtonClicked
-) : ValueFragment(R.layout.fragment_home_internal) {
+) : Fragment(R.layout.fragment_home_internal) {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
 
@@ -19,23 +18,19 @@ class HomeInternalFragment @Inject constructor(
 
     val btnGoto = view.findViewById<Button>(R.id.btn_goto)
     btnGoto.setOnClickListener {
-      homeButtonClicked.goToNext(FragmentNavigator.NavOptions(remember = true))
+      homeButtonClicked.goToNext()
     }
 
     val workerStatus = view.findViewById<TextView>(R.id.tv_work_status)
     val btnWorker = view.findViewById<Button>(R.id.btn_work)
 
-    workerStatus.text = getString(R.string.worker_status, "Not started")
+    workerStatus.text = getString(R.string.worker_status, "NOT STARTED")
 
     HomeInternalWorker.observe(requireContext()).observe(viewLifecycleOwner) { workInfos ->
-      if (workInfos.isEmpty()) {
-        workerStatus.text = getString(R.string.worker_status, "Not started")
-        return@observe
+      if (workInfos.isNotEmpty()) {
+        val latestWork = workInfos.first()
+        workerStatus.text = getString(R.string.worker_status, latestWork.state.name)
       }
-
-      val latestWork = workInfos.first()
-
-      workerStatus.text = getString(R.string.worker_status, latestWork.state.name)
     }
 
     btnWorker.setOnClickListener {

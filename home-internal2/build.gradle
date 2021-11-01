@@ -34,9 +34,6 @@ android {
 dependencies {
     implementation project(":core")
 
-    implementation "io.github.kaustubhpatange:navigator:0.1-alpha33"
-    implementation "io.github.kaustubhpatange:navigator-extensions:0.7"
-
     implementation "com.google.dagger:hilt-android:2.39.1"
     kapt "com.google.dagger:hilt-compiler:2.39.1"
 

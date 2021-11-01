@@ -2,18 +2,14 @@ package com.kpstv.navigator_multimodule_test
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.kpstv.navigation.Destination
-import com.kpstv.navigation.FragmentNavigator
-import com.kpstv.navigation.canFinish
+import androidx.fragment.app.FragmentManager
+import com.kpstv.core.di.DaggerFragmentFactory
 import com.kpstv.navigator_multimodule_test.databinding.ActivityMainBinding
 import com.kpstv.navigator_multimodule_test.di.AppComponentProvider
-import com.kpstv.core.di.DaggerFragmentFactory
 import com.kpstv.welcome.WelcomeFragment
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), FragmentNavigator.Transmitter {
-  private lateinit var navigator: FragmentNavigator
-  override fun getNavigator(): FragmentNavigator = navigator
+class MainActivity : AppCompatActivity() {
 
   private lateinit var binding: ActivityMainBinding
 
@@ -30,13 +26,23 @@ class MainActivity : AppCompatActivity(), FragmentNavigator.Transmitter {
     setSupportActionBar(binding.toolbar)
 
     supportFragmentManager.fragmentFactory = daggerFragmentFactory
-
-    navigator = FragmentNavigator.with(this, savedInstanceState)
-      .initialize(binding.fragContainer, Destination.of(WelcomeFragment::class))
+    supportFragmentManager.beginTransaction()
+      .replace(R.id.frag_container, WelcomeFragment::class.java, null)
+      .commit()
 
   }
 
   override fun onBackPressed() {
-    if (navigator.canFinish()) super.onBackPressed()
+    val fm: FragmentManager = supportFragmentManager
+    for (frag in fm.fragments) {
+      if (frag.isVisible) {
+        val childFm: FragmentManager = frag.childFragmentManager
+        if (childFm.backStackEntryCount > 0) {
+          childFm.popBackStack()
+          return
+        }
+      }
+    }
+    super.onBackPressed()
   }
 }

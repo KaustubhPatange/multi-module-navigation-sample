@@ -2,23 +2,17 @@ package com.kpstv.home
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.FragmentContainerView
+import androidx.fragment.app.Fragment
 import com.kpstv.core.di.DaggerFragmentFactory
 import com.kpstv.home.di.HomeComponent
 import com.kpstv.home.di.HomeComponentProvider
 import com.kpstv.home.di.HomeScope
 import com.kpstv.home.fragments.HomeStartFragment
-import com.kpstv.navigation.Destination
-import com.kpstv.navigation.FragmentNavigator
-import com.kpstv.navigation.ValueFragment
 import javax.inject.Inject
 
 class HomeFragment @Inject constructor(
   homeComponentFactory: HomeComponent.Factory
-) : ValueFragment(R.layout.fragment_home), FragmentNavigator.Transmitter, HomeComponentProvider {
-
-  private lateinit var navigator: FragmentNavigator
-  override fun getNavigator(): FragmentNavigator = navigator
+) : Fragment(R.layout.fragment_home), HomeComponentProvider {
 
   override val homeComponent = homeComponentFactory.create(this)
 
@@ -35,7 +29,8 @@ class HomeFragment @Inject constructor(
 
     requireActivity().title = "Module: home"
 
-    navigator = FragmentNavigator.with(this, savedInstanceState)
-      .initialize(view as FragmentContainerView, Destination.of(HomeStartFragment::class))
+    childFragmentManager.beginTransaction()
+      .replace(view.id, HomeStartFragment::class.java, null)
+      .commit()
   }
 }
