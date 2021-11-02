@@ -1,11 +1,14 @@
-package com.kpstv.home
+package com.kpstv.home.navigation.home_internal
 
+import com.kpstv.core.HomeScope
+import com.kpstv.home.HomeFragment
+import com.kpstv.home.R
 import com.kpstv.home_internal.HomeButtonClicked
 import com.kpstv.home_internal2.HomeInternal2Fragment
 import javax.inject.Inject
 
 class HomeButtonClickedImpl @Inject constructor(
-  private val fragment: HomeFragment /* It is creating a new instance instead of providing an existing one */
+  @HomeScope private val fragment: HomeFragment,
 ) : HomeButtonClicked {
   override fun goToNext() {
     fragment.childFragmentManager.beginTransaction()

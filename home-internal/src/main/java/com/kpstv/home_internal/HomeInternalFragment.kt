@@ -6,11 +6,14 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.kpstv.home_internal.worker.HomeInternalWorker
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-class HomeInternalFragment @Inject constructor(
-  private val homeButtonClicked: HomeButtonClicked
-) : Fragment(R.layout.fragment_home_internal) {
+@AndroidEntryPoint
+class HomeInternalFragment : Fragment(R.layout.fragment_home_internal) {
+
+  @Inject lateinit var homeButtonClicked: HomeButtonClicked
+
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
 

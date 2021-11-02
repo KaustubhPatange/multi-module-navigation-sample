@@ -6,12 +6,14 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.kpstv.core.SomeDependency
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-class WelcomeFragment @Inject constructor(
-  private val someDependency: SomeDependency,
-  private val welcomeButtonClick: WelcomeButtonClick
-) : Fragment(R.layout.fragment_welcome) {
+@AndroidEntryPoint
+class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
+
+  @Inject lateinit var someDependency: SomeDependency
+  @Inject lateinit var welcomeButtonClick: WelcomeButtonClick
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
