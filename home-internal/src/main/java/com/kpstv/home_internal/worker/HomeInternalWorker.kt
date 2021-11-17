@@ -1,14 +1,14 @@
 package com.kpstv.home_internal.worker
 
 import android.content.Context
-import androidx.hilt.work.HiltWorker
 import androidx.lifecycle.LiveData
 import androidx.work.*
+import com.kpstv.core.di.workmanager.DaggerWorkerFactory
 import dagger.assisted.Assisted
+import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.delay
 
-@HiltWorker
 class HomeInternalWorker @AssistedInject constructor(
   @Assisted appContext: Context,
   @Assisted workerParams: WorkerParameters,
@@ -18,6 +18,9 @@ class HomeInternalWorker @AssistedInject constructor(
     delay(2000)
     return Result.success()
   }
+
+  @AssistedFactory
+  interface Factory : DaggerWorkerFactory<HomeInternalWorker>
 
   companion object {
     private const val ID = "worker:home-internal"

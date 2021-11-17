@@ -6,11 +6,8 @@ import com.kpstv.navigator_multimodule_test.navigation.welcome.WelcomeButtonClic
 import com.kpstv.welcome.WelcomeButtonClick
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
-import dagger.hilt.migration.DisableInstallInCheck
 
 @Module
-@DisableInstallInCheck
 abstract class ActivityModule {
   @Binds
   abstract fun provideWelcomeButtonClick(welcomeButtonClick: WelcomeButtonClickImpl) : WelcomeButtonClick

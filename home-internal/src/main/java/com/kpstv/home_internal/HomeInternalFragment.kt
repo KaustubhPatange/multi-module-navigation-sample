@@ -9,8 +9,9 @@ import com.kpstv.home_internal.worker.HomeInternalWorker
 import javax.inject.Inject
 
 class HomeInternalFragment @Inject constructor(
-  private val homeButtonClicked: HomeButtonClicked
+  private val homeButtonClicked: HomeButtonClicked,
 ) : Fragment(R.layout.fragment_home_internal) {
+
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
 

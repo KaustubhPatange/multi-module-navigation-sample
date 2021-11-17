@@ -7,11 +7,9 @@ import com.kpstv.home_internal.HomeInternalFragment
 import com.kpstv.home_internal2.HomeInternal2Fragment
 import dagger.Binds
 import dagger.Module
-import dagger.hilt.migration.DisableInstallInCheck
 import dagger.multibindings.IntoMap
 
 @Module
-@DisableInstallInCheck
 abstract class HomeFragmentModule {
   @Binds
   @IntoMap
