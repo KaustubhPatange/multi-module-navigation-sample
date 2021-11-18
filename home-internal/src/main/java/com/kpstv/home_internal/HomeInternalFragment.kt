@@ -9,7 +9,7 @@ import com.kpstv.home_internal.worker.HomeInternalWorker
 import javax.inject.Inject
 
 class HomeInternalFragment @Inject constructor(
-  private val homeButtonClicked: HomeButtonClicked,
+  private val homeInternalButtonClicked: HomeInternalButtonClicked,
 ) : Fragment(R.layout.fragment_home_internal) {
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -19,7 +19,7 @@ class HomeInternalFragment @Inject constructor(
 
     val btnGoto = view.findViewById<Button>(R.id.btn_goto)
     btnGoto.setOnClickListener {
-      homeButtonClicked.goToNext()
+      homeInternalButtonClicked.goToNext()
     }
 
     val workerStatus = view.findViewById<TextView>(R.id.tv_work_status)

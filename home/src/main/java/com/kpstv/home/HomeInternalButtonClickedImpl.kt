@@ -1,12 +1,12 @@
 package com.kpstv.home
 
-import com.kpstv.home_internal.HomeButtonClicked
+import com.kpstv.home_internal.HomeInternalButtonClicked
 import com.kpstv.home_internal2.HomeInternal2Fragment
 import javax.inject.Inject
 
-class HomeButtonClickedImpl @Inject constructor(
+class HomeInternalButtonClickedImpl @Inject constructor(
   private val fragment: HomeFragment
-) : HomeButtonClicked {
+) : HomeInternalButtonClicked {
   override fun goToNext() {
     fragment.childFragmentManager.beginTransaction()
       .addToBackStack("home-internal2")
