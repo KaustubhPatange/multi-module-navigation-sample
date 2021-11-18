@@ -1,8 +1,8 @@
 package com.kpstv.home.di
 
-import com.kpstv.home.navigation.home_internal.HomeButtonClickedImpl
+import com.kpstv.home.navigation.home_internal.HomeInternalButtonClickedImpl
 import com.kpstv.home.HomeDependency
-import com.kpstv.home_internal.HomeButtonClicked
+import com.kpstv.home_internal.HomeInternalButtonClicked
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -21,5 +21,5 @@ class HomeDependencyModule {
 abstract class HomeModule {
 
   @Binds
-  abstract fun provideHomeButtonClick(homeButtonClicked: HomeButtonClickedImpl) : HomeButtonClicked
+  abstract fun provideHomeInternalButtonClick(homeButtonClicked: HomeInternalButtonClickedImpl) : HomeInternalButtonClicked
 }

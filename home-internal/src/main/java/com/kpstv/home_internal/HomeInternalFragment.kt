@@ -12,7 +12,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class HomeInternalFragment : Fragment(R.layout.fragment_home_internal) {
 
-  @Inject lateinit var homeButtonClicked: HomeButtonClicked
+  @Inject lateinit var homeInternalButtonClicked: HomeInternalButtonClicked
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
@@ -21,7 +21,7 @@ class HomeInternalFragment : Fragment(R.layout.fragment_home_internal) {
 
     val btnGoto = view.findViewById<Button>(R.id.btn_goto)
     btnGoto.setOnClickListener {
-      homeButtonClicked.goToNext()
+      homeInternalButtonClicked.goToNext()
     }
 
     val workerStatus = view.findViewById<TextView>(R.id.tv_work_status)
