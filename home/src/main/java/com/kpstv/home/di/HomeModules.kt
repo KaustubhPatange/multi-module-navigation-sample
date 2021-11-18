@@ -2,9 +2,9 @@ package com.kpstv.home.di
 
 import androidx.fragment.app.FragmentFactory
 import com.kpstv.core.di.DaggerFragmentFactory
-import com.kpstv.home.HomeButtonClickedImpl
+import com.kpstv.home.HomeInternalButtonClickedImpl
 import com.kpstv.home.HomeDependency
-import com.kpstv.home_internal.HomeButtonClicked
+import com.kpstv.home_internal.HomeInternalButtonClicked
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -14,7 +14,7 @@ import dagger.hilt.migration.DisableInstallInCheck
 @DisableInstallInCheck
 abstract class HomeModule {
   @Binds
-  abstract fun homeButtonClicked(homeButtonClicked: HomeButtonClickedImpl): HomeButtonClicked
+  abstract fun homeButtonClicked(homeButtonClicked: HomeInternalButtonClickedImpl): HomeInternalButtonClicked
 
   @Binds
   @HomeScope
