@@ -1,6 +1,5 @@
 package com.kpstv.navigator_multimodule_test.di
 
-import com.kpstv.home.di.HomeScope
 import com.kpstv.home.HomeFragment
 import com.kpstv.navigator_multimodule_test.navigation.welcome.WelcomeButtonClickImpl
 import com.kpstv.welcome.WelcomeButtonClick
@@ -20,6 +19,6 @@ abstract class ActivityModule {
 @Module
 @InstallIn(ActivityComponent::class)
 class HomeFragmentModule {
-  @Provides @HomeScope
+  @Provides
   fun homeFragment() = HomeFragment()
 }
