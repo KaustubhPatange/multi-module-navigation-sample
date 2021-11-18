@@ -1,6 +1,6 @@
 package com.kpstv.home.navigation.home_internal
 
-import com.kpstv.core.HomeScope
+import com.kpstv.home.di.HomeScope
 import com.kpstv.home.HomeFragment
 import com.kpstv.home.R
 import com.kpstv.home_internal.HomeButtonClicked
