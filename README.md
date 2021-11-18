@@ -1,5 +1,4 @@
-# multi-module-test
+# multi-module-test (hybrid)
 
-`master` branch implements multi module with dagger.
-
-`hilt` branch tries to implements multi module with hilt-dagger with `EntryPointAccessors`.
+- In this approach both **dagger** & **hilt** are used for navigating via modules.
+- More specifically, **dagger** is used only for managing navigation while **hilt** makes injecting in Jetpack libraries like `WorkManager` & `ViewModel` smoothly.
