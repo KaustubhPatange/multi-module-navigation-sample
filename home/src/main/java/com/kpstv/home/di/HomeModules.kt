@@ -17,7 +17,7 @@ class HomeDependencyModule {
   @Provides
   fun homeDependency(): HomeDependency = HomeDependency()
 
-  @Provides @HomeScope
+  @Provides @HomeQualifier
   fun homeFragment(fragment: Fragment) : HomeFragment {
     return fragment.requireActivity().supportFragmentManager.fragments.find { it is HomeFragment } as HomeFragment
   }

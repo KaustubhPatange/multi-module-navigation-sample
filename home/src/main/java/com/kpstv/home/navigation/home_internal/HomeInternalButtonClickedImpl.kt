@@ -1,6 +1,6 @@
 package com.kpstv.home.navigation.home_internal
 
-import com.kpstv.home.di.HomeScope
+import com.kpstv.home.di.HomeQualifier
 import com.kpstv.home.HomeFragment
 import com.kpstv.home.R
 import com.kpstv.home_internal.HomeInternalButtonClicked
@@ -8,7 +8,7 @@ import com.kpstv.home_internal2.HomeInternal2Fragment
 import javax.inject.Inject
 
 class HomeInternalButtonClickedImpl @Inject constructor(
-  @HomeScope private val fragment: HomeFragment,
+  @HomeQualifier private val fragment: HomeFragment,
 ) : HomeInternalButtonClicked {
   override fun goToNext() {
     fragment.childFragmentManager.beginTransaction()
