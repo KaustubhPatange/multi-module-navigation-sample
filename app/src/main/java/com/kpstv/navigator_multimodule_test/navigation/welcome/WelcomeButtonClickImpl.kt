@@ -1,7 +1,6 @@
 package com.kpstv.navigator_multimodule_test.navigation.welcome
 
 import androidx.fragment.app.FragmentActivity
-import com.kpstv.home.di.HomeScope
 import com.kpstv.home.HomeFragment
 import com.kpstv.navigator_multimodule_test.R
 import com.kpstv.welcome.WelcomeButtonClick
