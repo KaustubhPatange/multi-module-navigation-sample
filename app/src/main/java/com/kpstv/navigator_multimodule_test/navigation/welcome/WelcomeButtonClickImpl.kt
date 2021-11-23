@@ -8,13 +8,12 @@ import com.kpstv.welcome.WelcomeButtonClick
 import javax.inject.Inject
 
 class WelcomeButtonClickImpl @Inject constructor(
-  @HomeScope private val homeFragment: HomeFragment,
   private val activity: FragmentActivity /* Provides the nearest fragment activity */
 ) : WelcomeButtonClick {
   override fun goToNext() {
     activity.supportFragmentManager.beginTransaction()
       .addToBackStack("home")
-      .replace(R.id.frag_container, homeFragment, null)
+      .replace(R.id.frag_container, HomeFragment::class.java, null)
       .commit()
   }
 }

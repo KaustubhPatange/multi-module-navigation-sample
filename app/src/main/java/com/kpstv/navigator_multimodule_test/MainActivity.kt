@@ -19,10 +19,11 @@ class MainActivity : AppCompatActivity() {
 
     setSupportActionBar(binding.toolbar)
 
-    supportFragmentManager.beginTransaction()
-      .replace(R.id.frag_container, WelcomeFragment::class.java, null)
-      .commit()
-
+    if (savedInstanceState == null) {
+      supportFragmentManager.beginTransaction()
+        .replace(R.id.frag_container, WelcomeFragment::class.java, null)
+        .commit()
+    }
   }
 
   override fun onBackPressed() {
