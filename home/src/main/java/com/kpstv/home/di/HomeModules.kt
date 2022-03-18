@@ -22,7 +22,6 @@ abstract class HomeModule {
   abstract fun homeButtonClicked(homeButtonClicked: HomeInternalButtonClickedImpl): HomeInternalButtonClicked
 
   @Binds
-  @HomeScope
   abstract fun fragmentFactory(daggerFragmentFactory: DaggerFragmentFactory): FragmentFactory
 }
 

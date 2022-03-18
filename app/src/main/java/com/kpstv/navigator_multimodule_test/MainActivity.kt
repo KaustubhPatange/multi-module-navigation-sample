@@ -19,16 +19,19 @@ class MainActivity : AppCompatActivity() {
     (application as AppComponentProvider)
       .appComponent.activityComponent().activity(this)
       .inject(this)
+    supportFragmentManager.fragmentFactory = daggerFragmentFactory
+
     super.onCreate(savedInstanceState)
     binding = ActivityMainBinding.inflate(layoutInflater)
     setContentView(binding.root)
 
     setSupportActionBar(binding.toolbar)
 
-    supportFragmentManager.fragmentFactory = daggerFragmentFactory
-    supportFragmentManager.beginTransaction()
-      .replace(R.id.frag_container, WelcomeFragment::class.java, null)
-      .commit()
+    if (savedInstanceState == null) {
+      supportFragmentManager.beginTransaction()
+        .replace(R.id.frag_container, WelcomeFragment::class.java, null)
+        .commit()
+    }
 
   }
 

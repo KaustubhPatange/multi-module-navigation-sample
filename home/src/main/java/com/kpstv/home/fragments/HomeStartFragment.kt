@@ -35,7 +35,7 @@ class HomeStartFragment @Inject constructor(
 
     button.setOnClickListener {
       // this could be done better but for the sake of simplicity keep it as it is.
-      parentFragmentManager.beginTransaction()
+      requireParentFragment().childFragmentManager.beginTransaction()
         .addToBackStack("homeinternal")
         .replace(R.id.frag_container, HomeInternalFragment::class.java, null)
         .commit()
